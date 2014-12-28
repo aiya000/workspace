@@ -1,0 +1,1 @@
+alias hoge="echo hoge"

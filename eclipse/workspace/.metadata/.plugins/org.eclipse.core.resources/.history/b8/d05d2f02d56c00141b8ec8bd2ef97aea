@@ -1,0 +1,14 @@
+package application.chara;
+
+import javafx.scene.image.ImageView;
+
+
+public interface ReceptionGirlInterface {
+
+	/**
+	 * もしイメージオブジェクトが設定されていなければ引数のオブジェクトを設定します。
+	 * 既にイメージオブジェクトが設定されていれば何もしません。 
+	 * @param img 画像オブジェクト
+	 */
+	void ifAbsentSetImg(ImageView img);
+}

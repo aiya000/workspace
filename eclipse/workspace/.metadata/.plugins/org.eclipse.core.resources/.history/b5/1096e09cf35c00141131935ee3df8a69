@@ -1,0 +1,43 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.fxml.FXMLLoader;
+
+
+public class Main extends Application {
+
+	/* メインウィンドウです */
+	private static Stage primaryStage;
+
+	/** ウィンドウのクライアント領域の高さです */
+	public static double getClientHeight(){ return primaryStage.getHeight(); }
+	/** ウィンドウのクライアント領域の幅です */
+	public static double getClientWidth(){ return primaryStage.getWidth();	}
+
+	@Override
+	public void start(Stage primaryStage) {
+		Main.primaryStage = primaryStage;
+		primaryStage.initStyle(StageStyle.TRANSPARENT);
+		primaryStage.setFullScreen(true);
+		primaryStage.setResizable(false);
+
+		try {
+			Pane root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+			Scene scene = new Scene(root, primaryStage.getHeight(), primaryStage.getWidth());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

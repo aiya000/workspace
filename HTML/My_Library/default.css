@@ -1,0 +1,28 @@
+/* <meta name="copylight" content"(c) hoge 20xx-20yy"> */
+/* <link rel="stylesheet" href="./default.css" type="text/css"> */
+
+body {
+	background-color: #7FFFD4;
+}
+
+#square {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #333333;
+}
+
+#mutter {
+	font-size: 10px;
+}
+
+#insistence1 {
+	font-size: 35px;
+}
+
+#checkPoint0 {
+	color: #0000ff
+}
+
+#checkPoint1 {
+	color: #FF0000
+}

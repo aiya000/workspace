@@ -1,0 +1,105 @@
+package application;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.chara.Hackadoll;
+import application.chara.ReceptionGirlInterface;
+import application.chara.WalkerGirlInterface;
+import application.chara.Kei;
+import application.chara.ConoHa;
+import application.chara.Anzu;
+import application.chara.Claudia;
+import application.chara.Query;
+import application.chara.Unity;
+import application.chara.Zunko;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+
+
+public class MainController implements Initializable {
+
+	/* コントロール */
+	@FXML private ImageView kei;
+	@FXML private ImageView keiMsg;
+	@FXML private ImageView conoHa;
+	@FXML private ImageView conoHaMsg;
+	@FXML private ImageView anzu;
+	@FXML private ImageView anzuMsg;
+	@FXML private ImageView claudia;
+	@FXML private ImageView claudiaMsg;
+	@FXML private ImageView query;
+	@FXML private ImageView queryMsg;
+	@FXML private ImageView unity;
+	@FXML private ImageView unityMsg;
+
+	@FXML private ImageView hackadoll;
+	@FXML private ImageView zunko;
+
+	/* 調整定数 */
+	private final int TIMER_SPEED = 60;
+
+	/* キャラクター定義オブジェクト */
+	private WalkerGirlInterface[] walker = new WalkerGirlInterface[6];
+	private ReceptionGirlInterface[] receptionist = new ReceptionGirlInterface[2];
+
+	/* ---===---===---===---===---===---===--- */
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		walker[0] = new Kei();
+		walker[1] = new ConoHa();
+		walker[2] = new Anzu();
+		walker[3] = new Claudia();
+		walker[4] = new Query();
+		walker[5] = new Unity();
+		
+		receptionist[0] = new Hackadoll();
+		receptionist[1] = new Zunko();
+
+		Timeline timer = new Timeline(new KeyFrame(Duration.millis(TIMER_SPEED), e -> {
+			walker[0].ifAbsentSetImg(kei, keiMsg);
+			walker[1].ifAbsentSetImg(conoHa, conoHaMsg);
+			walker[2].ifAbsentSetImg(anzu, anzuMsg);
+			walker[3].ifAbsentSetImg(claudia, claudiaMsg);
+			walker[4].ifAbsentSetImg(query, queryMsg);
+			walker[5].ifAbsentSetImg(unity, unityMsg);
+			
+			receptionist[0].ifAbsentSetImg(hackadoll);
+			receptionist[1].ifAbsentSetImg(zunko);
+
+			for(WalkerGirlInterface girl : walker){
+				/* キャラクタの向きによってキャラクタを傾かせる */
+				girl.tilt();
+
+				/* キャラクターの移動 */
+				girl.move();
+				
+				/* しゃべる */
+				girl.say();
+
+				/* タイマーのインクリメント */
+				girl.incrTime();
+			}
+		}));
+		timer.setCycleCount(Timeline.INDEFINITE);
+		timer.play();
+	}
+
+
+	@FXML
+	public void onMouseDragged(MouseEvent e){
+		for(WalkerGirlInterface girl : walker){
+			girl.moveTo(e.getX(), e.getY());
+		}
+	}
+
+	/* ---===---===---===---===---===---===--- */
+
+
+}

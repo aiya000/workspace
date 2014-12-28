@@ -1,0 +1,11 @@
+
+N 人間 Persons
+M 足   Foots
+
+a = 2
+b = 3
+c = 4
+
+
+1. [Foots < Persons * 2] もしくは [Foots > Persons * 4] の場合測定不能になる。 なんで？
+-- http://abc006.contest.atcoder.jp/submissions/181730

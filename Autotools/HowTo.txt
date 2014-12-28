@@ -1,0 +1,16 @@
+ソース書く
+-> Makefile.am 書く
+-> autoscan する
+  => configure.scan を configure.in に
+    -> AC_INITを書いて -> AM_INIT_AUTOMAKEを追記する
+    -> LIBSやCFLAGSを書く[CFLAGS="$CFLAGS -lsqlite3] (Makefile.amに書いてもいい、むしろそっちでいい -> hoge_CFLAGS = -lsqlite3)
+    (-> サブディレクトリのMakefileのためにAC_CONFIG_FILES([***/Makefile Makefile])等々追加)
+  -> aclocal する(「configure.amじゃなくてconfigure.inになってるよ？」的警告は無視でおっけー)
+  -> autoheader する
+  -> touch NEWS README AUTHORS ChangeLog する
+  ...-> autoconf ?
+  -> automake -a -c する
+-> あとは./configureとか./makeとか./make installとか。
+
+reconf(Makefile.am等を変更したら)
+-> baseディレクトリでautoreconf -i

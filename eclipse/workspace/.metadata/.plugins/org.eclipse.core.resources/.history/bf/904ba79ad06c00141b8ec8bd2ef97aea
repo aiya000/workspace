@@ -1,0 +1,5 @@
+package application.chara;
+
+public abstract class AbstractReceptionGirl implements ReceptionGirlInterface {
+
+}

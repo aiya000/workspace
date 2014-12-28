@@ -1,0 +1,5 @@
+package chara.walker.girl;
+
+public class Kei extends AbstractWalkerGirl {
+
+}
