@@ -1,5 +1,0 @@
-package chara.walker.girl;
-
-public class Query extends AbstractWalkerGirl {
-
-}

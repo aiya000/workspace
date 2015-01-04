@@ -1,5 +1,0 @@
-package application.chara;
-
-public class Zunko extends AbstractReceptionGirl {
-
-}

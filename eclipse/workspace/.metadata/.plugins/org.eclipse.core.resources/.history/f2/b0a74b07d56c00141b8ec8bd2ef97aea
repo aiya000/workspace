@@ -1,6 +1,0 @@
-package application.chara;
-
-
-public class Hackadoll extends AbstractReceptionGirl {
-
-}

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename Java project &apos;JavaFXProject_Test&apos; to &apos;PTC_UniqueSkyStar&apos;&#x0A;- Original element: &apos;JavaFXProject_Test&apos;&#x0A;- Renamed element: &apos;JavaFXProject_Test&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;JavaFXProject_Test&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=JavaFXProject_Test" name="PTC_UniqueSkyStar" references="true" stamp="1413125899092" version="1.0"/>
-</session>
