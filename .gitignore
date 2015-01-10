@@ -3,3 +3,6 @@ eclipse/
 
 # テンポラリなファイルです
 *.class
+
+# 他の人のものが入っちゃうといけない
+Vim_script/Room/Reading/*
