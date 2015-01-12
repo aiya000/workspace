@@ -10,7 +10,7 @@ main = do
 
 
 fizzbuzz :: Int -> String
-fizzbuzz n | n < 1 || 9 < n    = "No"
-           | '3' `elem` show n = "Yes"
-           | n `mod` 3 == 0    = "Yes"
-           | otherwise         = "No"
+fizzbuzz n | n < 1 || 9 < n    = "NO"
+           | '3' `elem` show n = "YES"
+           | n `mod` 3 == 0    = "YES"
+           | otherwise         = "NO"
