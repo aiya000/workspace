@@ -6,3 +6,6 @@ eclipse/
 
 # 他の人のものが入っちゃうといけない
 Vim_script/Room/Reading/*
+
+# 権利的にあれ
+Java/src/
