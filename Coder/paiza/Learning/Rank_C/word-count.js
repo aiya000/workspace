@@ -1,18 +1,22 @@
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', main);
+
 
 Array.prototype.distinct = function(){
 	var list = [];
-	for each(var x in this){
+	for(var i=0; i<this.length; i++){
 		var exists = false;
 
-		for each(var y in list){
-			if(x == y){
+		for(var j=0; j<list.length; j++){
+			if(this[i] == list[j]){
 				exists = true;
 				break;
 			}
 		}
 
 		if(!exists){
-			list.push(x);
+			list.push(this[i]);
 		}
 	}
 
@@ -22,8 +26,8 @@ Array.prototype.distinct = function(){
 Array.prototype.countIt = function(it){
 	var count = 0;
 
-	for each(var x in this){
-		if(x == it){
+	for(var i=0; i<this.length; i++){
+		if(this[i] == it){
 			count++;
 		}
 	}
@@ -31,19 +35,19 @@ Array.prototype.countIt = function(it){
 	return count;
 }
 
-function main(){
-	var data = "Nagato Yukikaze Akagi Kitakami Nagato Akagi Akagi Kitakami";
-	var list = data.split(" ");
+function main(chunk){
+	var data = chunk.toString();
+	var list = data.replace("\n", "").split(" ");
 
 	var names = list.distinct();
 
 	var results = [];
-	for each(var name in names){
-		var n = list.countIt(name);
-		results.push(name + " " + n);
+	for(var i=0; i<names.length; i++){
+		var n = list.countIt(names[i]);
+		results.push(names[i] + " " + n);
 	}
 
-	results.slice(0, names.length).forEach(function(x){ print(x); });
+	for(var i=0; i<results.length; i++){
+		console.log(results[i]);
+	}
 }
-
-main();
