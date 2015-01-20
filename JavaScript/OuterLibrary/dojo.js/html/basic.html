@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Basic Dojo</title>
+        <script type="text/javascript" src="../lib/dojo/dojo.js"
+                djConfig="parseOnLoad: true"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function action(){
+                var text = dojo.byId("text_value");
+                dojo.style(text, "color", "blue");
+            }
+        </script>
+        <button onClick="action()">Button</button>
+        <div id="text_value">HogeHoge</div>
+    </body>
+</html>

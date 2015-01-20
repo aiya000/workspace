@@ -1,0 +1,23 @@
+<!-- Why does this not functioned ? -->
+
+<html>
+    <head>
+        <title>Widget Dojo</title>
+        <script type="text/javascript" src="../lib/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+        <script type="text/javascript">
+            dojo.require("dijit.form.Button");
+        </script>
+        <style type="text/css">
+            @import "../lib/dijit/themes/tundra/tundra.css";
+            @import "../lib/dojo/resources/dojo.css";
+        </style>
+    </head>
+    <body class="tundra">
+        <button dojoType="dijit.form.Button" id="helloButton">
+            HogeHogeFoo
+            <script type="dojo/method" event="onClick">
+                alert("Oh, ahoge.");
+            </script>
+        </button>
+    </body>
+</html>
