@@ -3,9 +3,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
-public class PECS {
+public class PECS_A_Use {
 	public static void main(String[] args){
-		new PECS().main();
+		new PECS_A_Use().main();
 	}
 
 
