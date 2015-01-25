@@ -6,4 +6,4 @@
 # hugo #
 # foge #
 
-gawk '/ge/{print}' grep.sh
+awk '/ge/{print}' grep.sh
