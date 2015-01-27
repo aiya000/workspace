@@ -2,7 +2,9 @@
 eclipse/
 
 # テンポラリなファイルです
-*.class
+**/a.out
+**/*.class
+**/*.exe
 
 # 他の人のものが入っちゃうといけない
 Vim_script/Room/Reading/*
@@ -10,3 +12,4 @@ Vim_script/Room/Reading/*
 # 権利的にあれ
 Java/src/
 JavaScript/OuterLibrary/dojo.js/lib/
+Coq/sfja

@@ -1,12 +1,12 @@
 import Control.Monad.State
 
-tick :: State Int Int
-tick = do
-  n <- get
-  put (n + 1)
-  return n
+addEx :: Int -> State Bool Int
+addEx n = do
+  a <- get
+  if a then put (n + 10)
+       else put (n + 20)
 
 
 main :: IO ()
 main = do
-  runState $ tick >> tick >> tick $ 0
+  print $ runState addEx False
