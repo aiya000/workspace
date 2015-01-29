@@ -14,3 +14,6 @@ p xs.reverse
 
 xs << 10.0 << 20.0
 p xs
+
+zs = [["hoge", 10], ["ahoge", 20]].to_h
+p zs
