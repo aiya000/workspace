@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+import codecs
+sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
+
+import random
+
+def blackjack():
+    cards = sum([range(1, 13), range(1, 13), range(1, 13), range(1, 13)], [])
+    for i in range(12):
+        l, r = random.randint(0, 12*4-1), random.randint(0, 12*4-1)
+        cards[l], cards[r] = cards[r], cards[l]
+
+    def draw():
+        card = cards[0]
+        cards.pop(0)
+        return card
+    # -------------------- #
+
+    playerScore, cpuScore = draw(), draw()
+    winCase = 2  # 0:lose, 1:win, 2:draw
+    gameEnd = False
+    print "----------"
+    while not gameEnd and len(cards) > 0:
+        print "score: ", playerScore
+        print "please draw ?(0/1): ",
+        want = int(raw_input())
+
+        cpuWant = random.random()%2
+        if cpuWant:
+            print "CPU draw."
+            cpuScore += draw()
+
+            if cpuScore > 21:
+                print "CPU Score is Break !!"
+                winFlag = True
+                break
+        else:
+            print "CPU do not draw."
+
+
+        if want == 0:
+            if playerScore > cpuScore:
+                winFlag = True
+            elif cpuScore > playerScore:
+                winFlag = False
+            break
+        elif want == 1:
+            playerScore += draw()
+            if playerScore > 21:
+                print "Player Score is Break !!"
+                winFlag = False
+                break
+
+            print "Next Phase"
+            print "----------"
+        else:
+            print u"じゃあの。"
+            break
+
+
+    print
+    print "Player Score: ", playerScore
+    print "CPU Score: ", cpuScore
+    if winFlag:
+        print
+        print "You Win !!"
+    else:
+        print
+        print "You Lose..."
+
+blackjack()
