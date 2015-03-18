@@ -1,0 +1,23 @@
+" .themisrc
+"call themis#helper('command').with(themis#helper('assert'))
+"call themis#option('runtimepath', ['..', $VIM.'/vim74'])
+
+Describe buffer and tab
+	It should be right functioned
+
+		" Tab1 - 'hoge'
+		e hoge
+		let l:tabpagenr_a = tabpagenr()
+
+		" Tab2 - '~'
+		let l:home        = expand('~')
+		execute ':Texplore' l:home
+		let l:tabpagenr_b = tabpagenr()
+
+		call themis#log(tabpagebuflist(l:tabpagenr_a))
+		call themis#log(tabpagebuflist(l:tabpagenr_b))
+
+		" this Assert failed
+		Assert (l:tabpagenr_a isnot l:tabpagenr_b)
+	End
+End
