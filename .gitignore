@@ -1,4 +1,4 @@
-# 環境固有なディレクトリです
+# 環境固有なディレクトリです ( というか重い )
 eclipse/
 
 # テンポラリなファイルです
@@ -7,7 +7,7 @@ eclipse/
 **/*.exe
 
 # 他の人のものが入っちゃうといけない
-Vim_script/Room/Reading/*
+Vim_script/Room/Reading/*_vimrc
 
 # 権利的にあれ
 Java/src/
