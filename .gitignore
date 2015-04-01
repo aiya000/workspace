@@ -7,7 +7,8 @@ eclipse/
 **/*.exe
 
 # 他の人のものが入っちゃうといけない
-Vim_script/Room/Reading/*_vimrc
+Vim_script/Room/Reading/**
+!Vim_script/Room/Reading/Mine
 
 # 権利的にあれ
 Java/src/
