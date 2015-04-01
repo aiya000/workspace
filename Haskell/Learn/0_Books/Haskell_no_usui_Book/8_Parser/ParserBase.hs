@@ -91,3 +91,7 @@ test19 = parse (ParserBase.return "hoge" +++ ParserBase.return "foo") "aho"   --
 test20 = parse (ParserBase.fail          +++ ParserBase.return "foo") "aho"
 test21 = parse (ParserBase.fail          +++ ParserBase.fail        ) "aho"
 -- }}}
+
+
+(>>) :: Parser a ->  Parser a -> Parser a
+p >> q = parse p ParserBase.>>= \_ -> parse q
