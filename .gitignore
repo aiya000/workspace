@@ -14,3 +14,7 @@ Vim_script/Room/Reading/**
 Java/src/
 JavaScript/OuterLibrary/dojo.js/lib/
 Coq/sfja
+
+# 他のリポジトリ
+C++/Projects
+Java/Projects

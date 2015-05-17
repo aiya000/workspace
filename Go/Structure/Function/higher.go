@@ -4,17 +4,16 @@ import "fmt"
 
 
 func main() {
-	// lambda apply
-	f := func (x int) int { return x * 2 }
-	a := f(10)
-	fmt.Println(a)
-
 	// get function
 	getter()()
 
 	// using hier-function
-	bs := applyer(f)
+	bs := applyer(func (x int) int { return x * 2 })
 	fmt.Println(bs)
+
+	// closure
+	g := closure(10)
+	fmt.Println( g(20) )
 }
 
 func applyer (f func(int) int) [5]int { /*{{{*/
@@ -31,5 +30,11 @@ func applyer (f func(int) int) [5]int { /*{{{*/
 func getter() func () { /*{{{*/
 	return func () {
 		fmt.Println("foo")
+	}
+} /*}}}*/
+
+func closure(x int) func(int) int { /*{{{*/
+	return func(y int) int {
+		return x + y
 	}
 } /*}}}*/
