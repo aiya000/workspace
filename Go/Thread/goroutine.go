@@ -42,4 +42,6 @@ func g() {
 func h() {
 	go echo("foo")
 	go echo("hoge")
+
+	// destruct with subroutines
 }
