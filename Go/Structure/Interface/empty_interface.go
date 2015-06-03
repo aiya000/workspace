@@ -1,13 +1,10 @@
 package main
 
-
-type A struct {}
-type B struct {}
-
+type A struct{}
+type B struct{}
 
 // empty interface
 func f(_ interface{}) {}
-
 
 func main() {
 	// send A pointer
@@ -15,6 +12,6 @@ func main() {
 	f(a)
 
 	// send B instance
-	b := B {}
+	b := B{}
 	f(b)
 }
