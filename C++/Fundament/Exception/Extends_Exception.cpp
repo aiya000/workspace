@@ -20,7 +20,7 @@ public:
 // 変な実装をしてみる
 template <typename T>
 void Tester<T>::setElement(T element) throw(Exception){
-		throw Exception("not integer type");
+	throw Exception("not integer type");
 	m_element = element;
 }
 template<typename T>

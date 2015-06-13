@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 
-// なんでg++ 4.8.1だとうまくいかない？
 auto main() -> int {
 	std::regex regex(".*");
 	std::regex regex0("[0-9]+", std::regex_constants::extended);
