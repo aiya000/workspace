@@ -1,6 +1,13 @@
 #include <iostream>
 #include <memory>
 
+struct A {
+	int x;
+	int y;
+	int z;
+	A(int x, int y, int z) : x(x), y(y), z(z) {}
+};
+
 int main() {
 	// safety make
 	std::unique_ptr<int> p = std::make_unique<int>(10);
@@ -20,4 +27,8 @@ int main() {
 		std::cout << (*qs)[i] << " ";
 	}
 	std::cout << std::endl;
+
+	// call constructor
+	auto q = std::make_unique<A>(1, 2, 3);
+	std::cout << q->x << " " << q->y << " " << q->z << std::endl;
 }
