@@ -21,3 +21,11 @@ printFunc1TH = ppr func1TH
 showFunc1TH  = pprint func1TH
 -- If you want to real expressionize from template haskell expression,
 -- you can use this way.
+
+
+main :: IO ()
+main = do
+  func1
+  print func1TH
+  print printFunc1TH
+  print showFunc1TH
