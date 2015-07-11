@@ -6,6 +6,9 @@ eclipse/
 **/*.class
 **/*.exe
 
+# ローカル環境で遊べる場所
+HobbyRoom/
+
 # 他の人のものが入っちゃうといけない
 Vim_script/Room/Reading/**
 !Vim_script/Room/Reading/Mine
