@@ -14,3 +14,6 @@ Vim_script/Room/Reading/**
 Java/src/
 JavaScript/OuterLibrary/dojo.js/lib/
 Coq/sfja
+
+# 強い
+**/.cabal-sandbox/
