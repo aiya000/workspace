@@ -22,3 +22,4 @@ Coq/sfja
 # 強い
 **/.cabal-sandbox/
 **/.stack-work/
+TypeScript/**/typings
