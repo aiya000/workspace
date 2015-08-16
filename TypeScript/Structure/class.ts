@@ -39,12 +39,34 @@ console.log(indexer[0]);
 
 // extends
 class A {
+	public constructor() {
+		console.log("bau!! => A");
+	}
 	public foo() : void {
 		console.log("A#foo()");
 	}
 }
 class B extends A {
+	public constructor() {
+		super();
+		console.log("and > bau!! => B");
+	}
 	public foo() : void {
 		console.log("B#foo()");
 	}
 }
+var b: B = new B();
+b.foo();
+
+// generic
+class Identity<T> {
+	private id: T;
+	public constructor(id: T) {
+		this.id = id;
+	}
+	public get() : T {
+		return this.id;
+	}
+}
+var identity = new Identity(10);
+console.log(identity.get());
