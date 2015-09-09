@@ -1,0 +1,2 @@
+* installed bower packages
+  - jquery

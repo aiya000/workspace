@@ -1,0 +1,2 @@
+* Installed bower packages
+  - angular

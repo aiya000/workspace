@@ -16,11 +16,12 @@ Vim_script/Room/Reading/**
 
 # 権利的にあれ
 Java/src/
-JavaScript/OuterLibrary/dojo.js/lib/
+JavaScript/Labo/Dojo.js/lib/
 Coq/sfja
 
 # 強い
 **/.cabal-sandbox/
 **/.stack-work/
+**/bower_components/
 TypeScript/**/typings
 TypeScript/**/jquery-*.*.*.min.js
