@@ -1,3 +1,6 @@
 [submodule "JavaScript/Labo/JQuery/TvCredits/tvcredits"]
 	path = JavaScript/Labo/JQuery/TvCredits/tvcredits
 	url = https://github.com/rosantoz/tvcredits
+[submodule "TypeScript/Labo/JQuery/tvcredits"]
+	path = TypeScript/Labo/JQuery/tvcredits
+	url = https://github.com/rosantoz/tvcredits.git
