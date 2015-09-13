@@ -4,3 +4,6 @@
 [submodule "TypeScript/Labo/JQuery/tvcredits"]
 	path = TypeScript/Labo/JQuery/tvcredits
 	url = https://github.com/rosantoz/tvcredits.git
+[submodule "TypeScript/StdClass/Promise/promises-typescript"]
+	path = TypeScript/StdClass/Promise/promises-typescript
+	url = https://github.com/stevan/promises-typescript.git

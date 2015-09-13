@@ -1,3 +1,6 @@
+/**
+ * @namespace
+ */
 var HelloPromiss = {
 	asyncGetFoo: function () {
 		return new Promise(function (resolve, reject) {
@@ -6,7 +9,7 @@ var HelloPromiss = {
 			for (var i = 0; i < 99999; ++i) {
 				sum += i;
 			}
-	
+
 			if (sum != RIGHT_VAL) {
 				reject(sum);
 				return;
@@ -17,9 +20,9 @@ var HelloPromiss = {
 
 	, start: function () {
 		HelloPromiss.asyncGetFoo().then(function (rightData) {
-			console.log("Succed calculate: " + rightData);
+			console.log("Succeed calculate: " + rightData);
 		}, function (leftData) {
-			console.log("Calculare failure");
+			console.log("Calculate failure");
 			console.log("result: " + leftData);
 		});
 	}
