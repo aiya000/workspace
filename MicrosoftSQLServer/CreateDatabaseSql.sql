@@ -1,0 +1,1 @@
+create database TestC2MS;  -- Pascal Case
