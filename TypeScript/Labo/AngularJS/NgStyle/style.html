@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!-- !?
+  <html ng-app="foo">
+-->
+<html ng-app="foo">
+  <head>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="./style.js"></script>
+  </head>
+  <body ng-controller="fooController">
+    <input type="button" value="Foo" ng-click="ahogeStyle={color:'red'}; f()"/>
+    <p ng-style="ahogeStyle">FooFoo!</p>
+  </body>
+</html>
