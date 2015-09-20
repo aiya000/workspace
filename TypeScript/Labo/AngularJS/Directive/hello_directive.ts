@@ -1,7 +1,7 @@
 /// <reference path="../../typings/angularjs/angular.d.ts"/>
 class HelloDirective implements ng.IDirective {
-	template = "NekoThunder!!!";
+	template = "<p>NekoThunder!!!</p>";
 }
 
-let app = angular.module("helloDirectiveApp", []);
-app.directive("helloDirective", () => new HelloDirective());
+angular.module("helloDirectiveApp", []);
+       .directive("helloDirective", () => new HelloDirective());

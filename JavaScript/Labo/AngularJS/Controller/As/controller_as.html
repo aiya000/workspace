@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="asNyan">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="./controller_as.js"></script>
+  </head>
+  <body>
+    <div ng-controller="FooController as foo">
+      <p ng-bind="foo.nyan"></p>
+    </div>
+  </body>
+</html>
