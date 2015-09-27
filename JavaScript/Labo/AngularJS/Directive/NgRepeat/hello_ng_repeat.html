@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="helloNgRepeat">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="./hello_ng_repeat.js"></script>
+  </head>
+  <body>
+    <div ng-controller="Controller as ctrl">
+      <!--
+      <p ng-repeat="item in ctrl.items">{{ item }}</p>
+      -->
+      <p ng-repeat="item in ctrl.items" ng-bind="item"></p>
+    </div>
+  </body>
+</html>
