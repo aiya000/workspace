@@ -1,6 +1,7 @@
 # 環境固有なディレクトリです ( というか重い )
 eclipse/
 MonoDevelop/
+VisualStudio/
 
 # テンポラリなファイルです
 **/a.out
