@@ -13,3 +13,11 @@ main :: IO ()
 main = do
   let st = return' 10
   print $ runState' st ()
+
+-- a = return 10 :: StateT () Identity Int
+-- b = runStateT a ()
+-- c = runIdentity b
+--
+-- a :: StateT () Identity Int
+-- b :: Identity (Int, ())
+-- c :: (Int, ())
