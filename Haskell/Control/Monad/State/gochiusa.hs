@@ -1,27 +1,26 @@
 import Control.Monad.State
-import Debug.Trace (trace)
 
 type Message = String
+data Person  = Chino | Rize | Cocoa | Syaro | Chiya | Nobody deriving Show
 
-rabitHouse :: State Message Message
-rabitHouse = state $ \s -> ("", "")
+rabitHouse :: State Person Message
+rabitHouse = state $ \s -> ("", Nobody)
 
-chino :: Message -> State Message Message
-chino x = state $ \s -> (x ++ "ごち", "")
+chino :: Message -> State Person Message
+chino x = state $ \s -> (x ++ "ごち", Chino)
 
-rize :: Message -> State Message Message
-rize x = state $ \s -> (x ++ "うさ", "")
+rize :: Message -> State Person Message
+rize x = state $ \s -> (x ++ "うさ", Rize)
 
-cocoa :: Message -> State Message Message
-cocoa x = state $ \s -> (x ++ "うどん！", "")
+cocoa :: Message -> State Person Message
+cocoa x = state $ \s -> (x ++ "うどん！", Cocoa)
 
-syaro :: Message -> State Message Message
-syaro x = state $ \s -> (x ++ "ワールド！", "")
+syaro :: Message -> State Person Message
+syaro x = state $ \s -> (x ++ "ワールド！", Syaro)
 
-chiya :: Message -> State Message Message
-chiya x = state $ \s -> (x ++ "祝福の風", "")
+chiya :: Message -> State Person Message
+chiya x = state $ \s -> (x ++ "祝福の風", Chiya)
 
 main :: IO ()
 main = putStrLn $ evalState
-  (rabitHouse >>= chino >>= rize >>= cocoa >>= syaro >>= chiya)
-  ""
+  (rabitHouse >>= chino >>= rize >>= cocoa >>= syaro >>= chiya) Nobody
