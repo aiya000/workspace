@@ -1,0 +1,108 @@
+import Control.Monad.State
+
+main :: IO ()
+main = do
+  let machine      = createMachine bfOpStack
+      dummyMachine = machine  -- FIXME: remove this
+      operate      = return dummyMachine >>= consumeOne >>= consumeOne >>= consumeOne
+                                         >>= consumeOne >>= consumeOne >>= consumeOne
+      x            = runState operate machine
+  print x
+
+bfExpr :: [Char]
+--bfExpr = "+++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-."
+--bfExpr = "+++++++++[>++++++++>+++++++++++>+++++<<<-]>>++++++++++++>-"
+bfExpr = "+>+>>+"
+bfOpStack :: BFOpStack
+bfOpStack = map toBFOperator bfExpr
+
+-- brain f*ck -- {{{
+
+data BFOperator = Plus
+                | Minus
+                | Shift
+                | Unshift
+--                | Input
+--                | Output
+                | LoopStart
+                | LoopEnd
+                --deriving Eq
+                deriving (Eq, Show)
+
+
+toBFOperator :: Char -> BFOperator
+toBFOperator '+' = Plus
+toBFOperator '-' = Minus
+toBFOperator '>' = Shift
+toBFOperator '<' = Unshift
+--toBFOperator ',' = Input
+--toBFOperator '.' = Output
+toBFOperator '[' = LoopStart
+toBFOperator ']' = LoopEnd
+toBFOperator _   = undefined
+
+-- }}}
+-- BFMachine -- {{{
+
+type BFMemory  = [Int]
+type BFPointer = Int
+type BFOpStack = [BFOperator]
+type BFMachine = (BFOpStack, BFMemory, BFPointer)
+
+incrementValue :: BFMachine -> BFMachine
+incrementValue (stack, mem, pointer) =
+  let x     = mem !! pointer
+      x'    = x + 1
+      under = take (pointer - 1) mem
+      over  = drop pointer mem
+      mem'  = under ++ [x'] ++ over
+  in (stack, mem', pointer)
+
+decrementValue :: BFMachine -> BFMachine
+decrementValue (stack, mem, pointer) =
+  let x     = mem !! pointer
+      x'    = x - 1
+      under = take (pointer - 1) mem
+      over  = drop pointer mem
+      mem'  = under ++ [x'] ++ over
+  in (stack, mem', pointer)
+
+shiftPointer :: BFMachine -> BFMachine
+shiftPointer (stack, mem, pointer) = (stack, mem, pointer + 1)
+
+unshiftPointer :: BFMachine -> BFMachine
+unshiftPointer (stack, mem, pointer) = (stack, mem, pointer - 1)
+
+-- }}}
+
+createMachine :: BFOpStack -> BFMachine
+createMachine stack = (stack, replicate 100 0, 0)
+
+consumeOne :: BFMachine -> State BFMachine BFMachine
+consumeOne ((Plus:ops), _, _) =
+  state $ \machine@(_, _, pt) ->
+    let (_, mem', _) = incrementValue machine
+        machine'     = (ops, mem', pt)
+    in (machine', machine')
+
+consumeOne ((Minus:ops), _, _) =
+  state $ \machine@(_, _, pt) ->
+    let (_, mem', _)  = decrementValue machine
+        machine'      = (ops, mem', pt)
+    in (machine', machine')
+
+consumeOne machine@((Shift:ops), _, _) =
+  state $ \machine@(_, mem, _) ->
+    let (_, _, pt') = shiftPointer machine
+        machine'    = (ops, mem, pt')
+    in (machine', machine')
+
+consumeOne ((Unshift:ops), _, _) =
+  state $ \machine@(_, mem, _) ->
+    let (_, _, pt') = unshiftPointer machine
+        machine'    = (ops, mem, pt')
+    in (machine', machine')
+
+--consumeOne ((LoopStart:ops), mem, pt) = state $ \machine ->
+--consumeOne ((LoopEnd:ops), mem, pt)   = state $ \machine ->
+consumeOne _ = undefined
