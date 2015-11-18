@@ -7,6 +7,9 @@ VisualStudio/
 **/a.out
 **/*.class
 **/*.exe
+Tex/**/*.log
+Tex/**/*.aux
+Tex/**/*.pdf
 
 # ローカル環境で遊べる場所
 HobbyRoom/
