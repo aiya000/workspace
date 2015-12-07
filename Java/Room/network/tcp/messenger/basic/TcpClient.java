@@ -3,19 +3,33 @@ import java.net.*;
 
 
 public class TcpClient {
-	/* --- --- --- private static const field --- --- --- */
-	private static final String SERVER_ADDRESS = "localhost";
-	private static final int    SERVER_PORT    = 15010;
-
 	/* --- --- --- public static method --- --- --- */
 	public static void main(String[] args) {
-		byte[] message  = "Hello, Net world!!".getBytes();
-		try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
-			System.out.println("connecting ... " + SERVER_ADDRESS);
-			sendMessage(socket, message);
+		TcpClient client        = new TcpClient();
+		String    serverAddress = null;
+		int       serverPort    = -1;
+		String    message       = null;
+		if (args.length < 2) {
+			serverAddress = "localhost";
+			serverPort    = 15010;
+			message       = "Hello, Net world!!";
+		} else {
+			serverAddress = args[0];
+			serverPort    = Integer.parseInt(args[1]);
+			message       = args[2];
+		}
+		client.send(serverAddress, serverPort, message);
+	}
+
+	/* --- --- --- public method --- --- --- */
+	public void send(String serverAddress, int serverPort, String messageStr) {
+		byte[] message  = messageStr.getBytes();
+		try (Socket socket = new Socket(serverAddress, serverPort)) {
+			System.out.println("connecting ... " + serverAddress);
+			this.sendMessage(socket, message);
 			System.out.println("done send message: \"" + new String(message) + "\"");
 
-			String result = fetchMessage(socket, message);
+			String result = this.fetchMessage(socket, message);
 			System.out.println("Received: " + result);
 		} catch (IOException e) {
 			System.out.println("fatal error: " + e.getMessage());
@@ -23,14 +37,14 @@ public class TcpClient {
 		}
 	}
 
-	/* --- --- --- private static method --- --- --- */
-	private static void sendMessage(Socket socket, byte[] message) throws IOException {
+	/* --- --- --- private method --- --- --- */
+	private void sendMessage(Socket socket, byte[] message) throws IOException {
 		InputStream  in  = socket.getInputStream();
 		OutputStream out = socket.getOutputStream();
 		out.write(message);
 	}
 
-	private static String fetchMessage(Socket socket, byte[] message) throws IOException {
+	private String fetchMessage(Socket socket, byte[] message) throws IOException {
 		InputStream   in                 = socket.getInputStream();
 		OutputStream  out                = socket.getOutputStream();
 		byte[]        buffer             = new byte[message.length];
