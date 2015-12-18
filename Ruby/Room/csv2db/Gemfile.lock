@@ -1,0 +1,49 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (3.2.22)
+      activesupport (= 3.2.22)
+      builder (~> 3.0.0)
+    activerecord (3.2.22)
+      activemodel (= 3.2.22)
+      activesupport (= 3.2.22)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activerecord-sqlserver-adapter (3.2.13)
+      activerecord (~> 3.2.0)
+    activesupport (3.2.22)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    arel (3.0.3)
+    builder (3.0.4)
+    configurable (0.7.0)
+      lazydoc (>= 1.0.0)
+    dbd-odbc (0.2.5)
+      dbi (>= 0.4.0)
+    dbi (0.4.5)
+      deprecated (= 2.0.1)
+    deprecated (2.0.1)
+    i18n (0.7.0)
+    lazydoc (1.0)
+    logger (1.2.8)
+    mini_portile (0.6.2)
+    multi_json (1.11.2)
+    ruby-odbc (0.99997)
+    tap (1.4.0)
+      configurable (~> 0.7.0)
+    tiny_tds (0.7.0-x64-mingw32)
+      mini_portile (= 0.6.2)
+    tzinfo (0.3.45)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  activerecord-sqlserver-adapter
+  arel (~> 3.0.2)
+  dbd-odbc
+  dbi
+  logger
+  ruby-odbc
+  tap
+  tiny_tds

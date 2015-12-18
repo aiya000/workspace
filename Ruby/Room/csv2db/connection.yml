@@ -1,0 +1,10 @@
+development:
+    adapter: "sqlserver"
+    mode: "odbc"
+    host: "192.168.1.201\\SQLSERVER"
+    username: "SisSystemUser"
+    password: "SisConfig"
+    database: "SisSystem"
+    dataserver: "NSLocalServer"
+    dsn: "SisSystemDSN"
+    port: 1433

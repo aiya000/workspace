@@ -1,0 +1,97 @@
+# Logfile created on 2015-11-13 11:38:22 +0900 by logger.rb/41954
+D, [2015-11-13T13:53:36.508574 #2984] DEBUG -- :   [1m[36mSQL (15.6ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T13:53:36.898574 #2984] DEBUG -- :   [1m[35mTest Load (46.8ms)[0m  EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T13:53:36.898574 #2984] DEBUG -- : ODBC::Error: 42000 (229) [Microsoft][ODBC SQL Server Driver][SQL Server]SELECT å†å¿Ç™ÉIÉuÉWÉFÉNÉg 'TestTable'ÅAÉfÅ[É^ÉxÅ[ÉX 'SisSystem'ÅAÉXÉLÅ[É} 'dbo' Ç≈ãëî€Ç≥ÇÍÇ‹ÇµÇΩÅB: EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T13:54:03.856422 #5096] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T13:58:38.816138 #4296] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T13:59:31.834265 #1020] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:03:24.526340 #5012] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:04:00.339388 #3904] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:08:48.141850 #4592] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:08:48.183852 #4592] DEBUG -- :   [1m[35mTest Load (2.0ms)[0m  EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T14:08:48.183852 #4592] DEBUG -- : ODBC::Error: 42000 (229) [Microsoft][ODBC SQL Server Driver][SQL Server]SELECT å†å¿Ç™ÉIÉuÉWÉFÉNÉg 'TestTable'ÅAÉfÅ[É^ÉxÅ[ÉX 'SisSystem'ÅAÉXÉLÅ[É} 'dbo' Ç≈ãëî€Ç≥ÇÍÇ‹ÇµÇΩÅB: EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T14:10:18.308007 #3412] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:10:18.339009 #3412] DEBUG -- :   [1m[35mTest Load (1.0ms)[0m  EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T14:10:24.443358 #3772] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:10:24.472360 #3772] DEBUG -- :   [1m[35mTest Load (1.0ms)[0m  EXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'
+D, [2015-11-13T14:10:42.205374 #1724] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:10:42.236376 #1724] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:10:42.266377 #1724] DEBUG -- :   [1m[36mSQL (3.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [basic_table] ([age], [name], [skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 16, @1 = N'hono', @2 = N'do_your_best'[0m  [["age", 16], ["name", "hono"], ["skill", "do_your_best"]]
+D, [2015-11-13T14:10:42.284378 #1724] DEBUG -- :   [1m[35mSQL (14.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:12:03.106001 #4608] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:12:49.944680 #2504] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:12:49.976682 #2504] DEBUG -- :   [1m[35mSQL (2.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:12:49.998683 #2504] DEBUG -- :   [1m[36mSQL (3.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:12:50.011684 #2504] DEBUG -- :   [1m[35mSQL (12.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:12:50.013684 #2504] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:13:51.644209 #4064] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:13:51.677211 #4064] DEBUG -- :   [1m[35mSQL (2.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:13:51.695212 #4064] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:13:51.713213 #4064] DEBUG -- :   [1m[35mSQL (16.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:13:51.717213 #4064] DEBUG -- :   [1m[36mTest Load (2.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:14:30.639440 #1504] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:14:30.673442 #1504] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:14:30.692443 #1504] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:14:30.711444 #1504] DEBUG -- :   [1m[35mSQL (16.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:14:30.713444 #1504] DEBUG -- :   [1m[36mTest Load (2.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:14:41.479060 #4964] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:14:41.510061 #4964] DEBUG -- :   [1m[35mSQL (2.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:14:41.530062 #4964] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:14:41.544063 #4964] DEBUG -- :   [1m[35mSQL (13.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:14:41.547063 #4964] DEBUG -- :   [1m[36mTest Load (2.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:15:00.128126 #4660] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:15:00.159128 #4660] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:15:00.176129 #4660] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:15:00.202130 #4660] DEBUG -- :   [1m[35mSQL (24.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:15:00.204131 #4660] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:15:33.077011 #2724] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:15:33.108013 #2724] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:15:33.126014 #2724] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:15:33.146015 #2724] DEBUG -- :   [1m[35mSQL (19.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:15:33.149015 #2724] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:15:44.583669 #1628] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:15:44.644672 #1628] DEBUG -- :   [1m[35mSQL (4.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:15:44.666674 #1628] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:15:44.727677 #1628] DEBUG -- :   [1m[35mSQL (60.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:15:44.730677 #1628] DEBUG -- :   [1m[36mTest Load (2.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:15:54.264223 #3720] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:15:54.294224 #3720] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:15:54.316226 #3720] DEBUG -- :   [1m[36mSQL (2.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:15:54.340227 #3720] DEBUG -- :   [1m[35mSQL (22.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:15:54.343227 #3720] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T14:49:39.326380 #4088] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T14:49:39.357580 #4088] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T14:49:39.404380 #4088] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T14:49:39.419980 #4088] DEBUG -- :   [1m[35mSQL (15.6ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T14:49:39.435580 #4088] DEBUG -- :   [1m[36mTest Load (0.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T15:00:25.887802 #2692] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T15:00:25.920803 #2692] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T15:00:25.942805 #2692] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T15:00:25.954805 #2692] DEBUG -- :   [1m[35mSQL (11.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T15:00:25.956806 #2692] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T15:00:49.875174 #2696] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T15:00:49.895175 #2696] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T15:00:49.908175 #2696] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T15:00:49.921176 #2696] DEBUG -- :   [1m[35mSQL (12.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T15:00:49.923176 #2696] DEBUG -- :   [1m[36mTest Load (1.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T15:00:49.924176 #2696] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T15:00:49.926177 #2696] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world
+'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world\n"]]
+D, [2015-11-13T15:00:49.933177 #2696] DEBUG -- :   [1m[35mSQL (6.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T15:00:49.934177 #2696] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mBEGIN TRANSACTION[0m
+D, [2015-11-13T15:00:49.936177 #2696] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  EXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 16, @1 = N'hono', @2 = N'do_your_best!
+'  [["Age", 16], ["Name", "hono"], ["Skill", "do_your_best!\n"]]
+D, [2015-11-13T15:00:49.946178 #2696] DEBUG -- :   [1m[36mSQL (9.0ms)[0m  [1mCOMMIT TRANSACTION[0m
+D, [2015-11-13T15:03:28.621993 #2476] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUSE [SisSystem][0m
+D, [2015-11-13T15:03:28.653193 #2476] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T15:03:28.668793 #2476] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world"]]
+D, [2015-11-13T15:03:28.699993 #2476] DEBUG -- :   [1m[35mSQL (15.6ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T15:03:28.699993 #2476] DEBUG -- :   [1m[36mTest Load (0.0ms)[0m  [1mEXEC sp_executesql N'SELECT [TestTable].* FROM [TestTable]'[0m
+D, [2015-11-13T15:03:28.699993 #2476] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  BEGIN TRANSACTION
+D, [2015-11-13T15:03:28.715593 #2476] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mEXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 13, @1 = N'homu', @2 = N'stop the world
+'[0m  [["Age", 13], ["Name", "homu"], ["Skill", "stop the world\n"]]
+D, [2015-11-13T15:03:28.715593 #2476] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  COMMIT TRANSACTION
+D, [2015-11-13T15:03:28.715593 #2476] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mBEGIN TRANSACTION[0m
+D, [2015-11-13T15:03:28.715593 #2476] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  EXEC sp_executesql N'INSERT INTO [TestTable] ([Age], [Name], [Skill]) VALUES (@0, @1, @2); SELECT CAST(SCOPE_IDENTITY() AS bigint) AS Ident', N'@0 int, @1 nvarchar(50), @2 nvarchar(50)', @0 = 16, @1 = N'hono', @2 = N'do_your_best!
+'  [["Age", 16], ["Name", "hono"], ["Skill", "do_your_best!\n"]]
+D, [2015-11-13T15:03:28.731193 #2476] DEBUG -- :   [1m[36mSQL (15.6ms)[0m  [1mCOMMIT TRANSACTION[0m
