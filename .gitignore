@@ -11,6 +11,7 @@ Tex/**/*.log
 Tex/**/*.aux
 Tex/**/*.pdf
 Tex/**/*.out
+Erlang/**/*.beam
 
 # 没
 Tex/**/dust/
