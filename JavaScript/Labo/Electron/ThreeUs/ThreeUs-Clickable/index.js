@@ -36,31 +36,39 @@ ThreeJsDimension.prototype.upToHtmlBody = function () {
 	document.body.appendChild(this.renderer.domElement);
 };
 
+ThreeJsDimension.prototype.addMouseClickListener = function (action) {
+	var self       = this;
+	var mouse      = {x: 0.0, y: 0.0};
+	var targetList = [this.cube];
+	var projector  = new THREE.Projector();
+	window.onmousedown = function (e) {
+		if (e.target == self.renderer.domElement) {
+			var rect = e.target.getBoundingClientRect();
+			// ??? v
+			mouse.x =  ((e.clientX - rect.left) / self.width)  * 2 - 1;
+			mouse.y = -((e.clientY - rect.top)  / self.height) * 2 + 1;
+			// ??? ^
+
+			var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
+			vector.unproject(self.camera);
+			var ray    = new THREE.Raycaster(
+					self.camera.position,
+					vector.sub(self.camera.position).normalize()
+					);
+			var andSet = ray.intersectObjects(targetList);
+			if (andSet.length > 0) {
+				action();
+			}
+		}
+	};
+};
+
 var main = function () {
 	var threeDim = new ThreeJsDimension(window.innerWidth, window.innerHeight);
 	threeDim.upToHtmlBody();
 	threeDim.startRender();
-
-	var mouse      = {x: 0.0, y: 0.0};
-	var targetList = [threeDim.cube];
-	var projector  = new THREE.Projector();
-	window.onmousedown = function (e) {
-		if (e.target == threeDim.renderer.domElement) {
-			var rect = e.target.getBoundingClientRect();
-			mouse.x = ((e.clientX - rect.left) / threeDim.width)   * 2 - 1;
-			mouse.y = -((e.clientY - rect.top)  / threeDim.height) * 2 + 1;
-			var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
-			//projector.unprojectVector(vector, threeDim.camera);
-			vector.unproject(threeDim.camera);
-			var ray = new THREE.Raycaster(
-					threeDim.camera.position,
-					vector.sub(threeDim.camera.position).normalize()
-					);
-			var andSet = ray.intersectObjects(targetList);
-			if (andSet.length > 0) {
-				alert('foo');
-			}
-		}
-	};
+	threeDim.addMouseClickListener(function () {
+		alert('foo');
+	});
 };
 window.addEventListener('DOMContentLoaded', main, false);
