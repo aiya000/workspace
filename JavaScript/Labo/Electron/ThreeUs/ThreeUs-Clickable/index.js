@@ -27,6 +27,7 @@ function ThreeJsDimension (sceneWidth, sceneHeight) {
 ThreeJsDimension.prototype.startRender = function () {
 	var self = this;
 	(function render() {
+		self.camera.z -= 0.1;
 		requestAnimationFrame(render);
 		self.renderer.render(self.scene, self.camera);
 	})();
@@ -41,7 +42,7 @@ ThreeJsDimension.prototype.addMouseClickListener = function (action) {
 	var mouse      = {x: 0.0, y: 0.0};
 	var targetList = [this.cube];
 	var projector  = new THREE.Projector();
-	window.onmousedown = function (e) {
+	window.onclick = function (e) {
 		if (e.target == self.renderer.domElement) {
 			var rect = e.target.getBoundingClientRect();
 			// ??? v
@@ -50,7 +51,9 @@ ThreeJsDimension.prototype.addMouseClickListener = function (action) {
 			// ??? ^
 
 			var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
+			// Convert coordinate system 'absolute' to 'camera'
 			vector.unproject(self.camera);
+			// Detect geometry click
 			var ray    = new THREE.Raycaster(
 					self.camera.position,
 					vector.sub(self.camera.position).normalize()
@@ -62,6 +65,8 @@ ThreeJsDimension.prototype.addMouseClickListener = function (action) {
 		}
 	};
 };
+
+/* --- --- ---  --- --- --- */
 
 var main = function () {
 	var threeDim = new ThreeJsDimension(window.innerWidth, window.innerHeight);

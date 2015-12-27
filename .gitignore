@@ -32,5 +32,6 @@ Coq/sfja
 **/.cabal-sandbox/
 **/.stack-work/
 **/bower_components/
+**/node_modules/
 TypeScript/**/typings
 TypeScript/**/jquery-*.*.*.min.js
