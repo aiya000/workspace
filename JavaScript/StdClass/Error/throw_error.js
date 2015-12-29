@@ -1,11 +1,11 @@
 // How to use
 try {
-	print("entered try block");
+	console.log("entered try block");
 	throw new Error("foo");
-	print("finished operation of try block");
+	console.log("finished operation of try block");
 } catch (e) {
-	print("caught an error");
-	print(e);
+	console.log("caught an error");
+	console.log(e);
 }
 
 // How to extends
@@ -19,6 +19,6 @@ ExtendedError.prototype.constructor = ExtendedError;
 try {
 	throw new ExtendedError("ahoge");
 } catch (e) {
-	print("caught an ExtendedError");
-	print(e);
+	console.log("caught an ExtendedError");
+	console.log(e);
 }
