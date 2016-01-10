@@ -20,3 +20,15 @@ mnTestAp1 = let mnLawAp' = mnLawAp :: Int -> Int -> Int -> Bool
 mnTestEm1 :: IO ()
 mnTestEm1 = let mnLawEm' = mnLawEm :: Int -> Bool
             in quickCheck mnLawEm'
+
+--instance Monoid [a] where
+--  mappend = (++)
+--  mempty  = []
+
+mnTestAp2 :: IO ()
+mnTestAp2 = let mnLawAp' = mnLawAp :: [Float] -> [Float] -> [Float] -> Bool
+            in quickCheck mnLawAp'
+
+mnTestEm2 :: IO ()
+mnTestEm2 = let mnLawEm' = mnLawEm :: [Float] -> Bool
+            in quickCheck mnLawEm'
