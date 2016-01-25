@@ -9,8 +9,17 @@ function main() {
 		.addTo(stage)
 		.attr('fillColor', 'black')
 		.on('pointermove', function (e) {
-			new Circle(e.stageX, e.stageY, 10)
+			var size = Math.random() * 30 + 10;
+			new Circle(e.stageX, e.stageY, size)
 				.addTo(stage)
-				.attr('fillColor', 'random');
+				.attr({
+					fillColor: 'random',
+					scale:     Math.random() * 2 + 1
+				})
+				.animate('1s', {
+					fillColor: 'random',
+					opacity: 0,
+					scale:   0
+				}, {});
 		});
 }
