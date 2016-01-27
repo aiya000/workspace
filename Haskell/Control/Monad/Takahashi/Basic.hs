@@ -1,3 +1,4 @@
+-- See http://tokiwoousaka.github.io/takahashi/contents/20150213takahashi.html
 import Control.Monad.Takahashi
 import Control.Lens
 
