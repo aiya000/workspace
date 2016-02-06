@@ -1,7 +1,7 @@
 module Lib
-    ( module Data.Card
-    , module Data.Suit
+    ( module Cards
+    , module Hands
     ) where
 
-import Data.Card
-import Data.Suit
+import Cards
+import Hands

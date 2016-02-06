@@ -1,5 +1,9 @@
 module Main where
+import Data.List
 import Lib
+import System.Random.Shuffle
 
 main :: IO ()
-main = print $ show (Card 5 Hearts)
+main = do
+  shuffled <- shuffleM allCards
+  print . sort . take 5 $ shuffled
