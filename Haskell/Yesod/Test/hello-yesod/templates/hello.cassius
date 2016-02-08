@@ -1,9 +1,0 @@
-ul
-    li.english
-        color: blue;
-    li.chinese
-        color: green;
-    li.hindi
-        color: brown;
-    li.japanese
-        color: red;
