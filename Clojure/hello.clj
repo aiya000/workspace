@@ -24,3 +24,6 @@
 (println foo)
 (def foo "baaaa")
 (println foo)
+
+; destruct values
+(println (let [[a b] [10 20]] (+ a b)))

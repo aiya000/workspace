@@ -1,9 +1,12 @@
 (def xs '(1 2 3 4 5 6 7 8 9 10))
 
+(println (list :a :b :c))
+
 (println
   (first xs)
   (rest xs)
   (second xs)
+  (last xs)
   (nth xs 2)
   (take 5 xs)
   (cons 20 xs))
