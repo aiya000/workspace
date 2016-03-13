@@ -10,3 +10,7 @@
 (use '[clojure.set :only [intersection union]])
 (println (intersection #{1 2 3} #{2 3 4}))
 (println (union        #{1 2 3} #{2 3 4}))
+
+; import
+(import java.util.ArrayList '(java.util List Set))
+(println (class (ArrayList.)))
