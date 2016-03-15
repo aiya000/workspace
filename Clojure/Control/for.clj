@@ -1,3 +1,4 @@
+; This function don't run IO, generating lazy-sequence
 (def xs
   (for [x '(10 20 30)] (+ x 1)))
 (def ys
