@@ -2,6 +2,7 @@
 eclipse/
 MonoDevelop/
 VisualStudio/
+AndroidStudioProject/
 
 # テンポラリなファイルです
 **/a.out
