@@ -2,13 +2,12 @@
 import Data.Aeson
 import Data.Maybe ( fromJust )
 import Data.Text ( Text () )
-import GHC.Generics
 import Data.ByteString.Lazy ( ByteString () )
 import qualified Data.ByteString.Lazy as BLazy
 
 data Timeline = Timeline
   { _text :: Text
-  } deriving (Show, Read)
+  } deriving (Show)
 
 instance FromJSON Timeline where
   parseJSON (Object v) = Timeline <$> v .: "text"
