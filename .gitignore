@@ -30,8 +30,6 @@ JavaScript/Labo/Dojo.js/lib/
 Coq/sfja
 
 # 強い
-**/.cabal-sandbox/
-**/.stack-work/
 **/bower_components/
 **/node_modules/
 TypeScript/**/typings

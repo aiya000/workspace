@@ -4,3 +4,6 @@
 [submodule "TypeScript/Labo/JQuery/tvcredits"]
 	path = TypeScript/Labo/JQuery/tvcredits
 	url = https://github.com/rosantoz/tvcredits.git
+[submodule "learning-Haskell"]
+	path = Haskell
+	url = https://github.com/aiya000/learning-Haskell
