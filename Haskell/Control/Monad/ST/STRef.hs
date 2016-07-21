@@ -2,12 +2,16 @@
 -- but STRef run in another thread(not main thread)
 -- and STRef closed in ST `s` a
 import Control.Monad.ST (ST, runST)
-import Data.STRef (newSTRef, modifySTRef, readSTRef)
+import Data.STRef (newSTRef, modifySTRef, readSTRef, writeSTRef)
 
 main :: IO ()
 main = do
   print $ pureFunc 1 2
   print $ runST getSTRef
+  print $ runST $ do
+    x <- newSTRef 10
+    writeSTRef x 20  -- overwrite
+    readSTRef x
 
 
 -- Look like pure function
@@ -18,11 +22,10 @@ pureFunc x y = runST $ do
   readSTRef x'
 
 
--- ! Bad use case (not closed case)
 -- ST ReadWorld a <=> IO a
--- ( but we must not indeed specify `s` )
+-- We must not indeed specify `s`
 getSTRef :: ST s Int
 getSTRef = do
-  a  <- newSTRef 0
+  a <- newSTRef 0
   modifySTRef a (+10)
   readSTRef a
