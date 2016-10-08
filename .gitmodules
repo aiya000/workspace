@@ -7,3 +7,6 @@
 [submodule "learning-Haskell"]
 	path = Haskell
 	url = https://github.com/aiya000/learning-Haskell
+[submodule "Math"]
+	path = Math
+	url = https://github.com/aiya000/learning-math
