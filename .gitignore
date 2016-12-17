@@ -1,11 +1,11 @@
-# 環境固有なディレクトリです ( というか重い )
+# Don't include IDE Projects
 eclipse/
 MonoDevelop/
 VisualStudio/
 AndroidStudioProject/
 IdeaProjects/
 
-# テンポラリなファイルです
+# Others
 **/a.out
 **/*.class
 **/*.exe
@@ -14,24 +14,15 @@ Tex/**/*.aux
 Tex/**/*.pdf
 Tex/**/*.out
 Erlang/**/*.beam
-
-# 没
 Tex/**/dust/
-
-# ローカル環境で遊べる場所
-HobbyRoom/
-
-# 他の人のものが入っちゃうといけない
 Vim_script/Room/Reading/**
 !Vim_script/Room/Reading/Mine
-
-# 権利的にあれ
 Java/src/
 JavaScript/Labo/Dojo.js/lib/
 Coq/sfja
-
-# 強い
 **/bower_components/
 **/node_modules/
 TypeScript/**/typings
 TypeScript/**/jquery-*.*.*.min.js
+Python/**/__pycache__
+HobbyRoom/
