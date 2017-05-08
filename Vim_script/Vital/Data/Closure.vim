@@ -20,11 +20,13 @@ echo 'f is closure: ' . Closure.is_closure(f)
 echo 'g is closure: ' . Closure.is_closure(g)
 echo 'h is closure: ' . Closure.is_closure(h)
 echo 'k is closure: ' . Closure.is_closure(k)
+echo 'function is closure: ' . Closure.is_closure(function('function'))
 
 echo 'f is callable: ' . Closure.is_callable(f)
 echo 'g is callable: ' . Closure.is_callable(g)
 echo 'h is callable: ' . Closure.is_callable(h)
 echo 'k is callable: ' . Closure.is_callable(k)
+echo 'function is callable: ' . Closure.is_callable(function('function'))
 
 
 let f = Closure.from_expr('x + y', {'x': 1, 'y': 2})
