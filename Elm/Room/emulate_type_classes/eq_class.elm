@@ -4,6 +4,7 @@ module EmClass.Eq
   , eq
   , eqDInt
   , eqDList
+  , member
   )
 
 import Html exposing (Html, div, text)
@@ -48,11 +49,18 @@ eqDList eqDa =
       }
 
 
+member : EqD a -> List a -> a -> Bool
+member eqDa xs y = case xs of
+  []      -> False
+  (x::xs) -> eq eqDa x y || member eqDa xs y
+
+
 eqMain : Html a
 eqMain = div []
   [ div [] [eq eqDInt 1 1 |> toString |> text]
   , div [] [eq (eqDList eqDInt) [1, 1] [1, 2] |> toString |> text]
-  , div [] [eq (eqDList (eqDList eqDInt)) [[10], [1, 2]] [[10], [1, 2]] |> toString |> text ]
+  , div [] [eq (eqDList (eqDList eqDInt)) [[10], [1, 2]] [[10], [1, 2]] |> toString |> text]
+  , div [] [member eqDInt [1, 2, 3] 2 |> toString |> text]
   ]
 
 
