@@ -7,6 +7,8 @@ module EmClass.Num
   , numDInt
   , numDFloat
   , numDPair
+  , square
+  , squares
   )
 
 {-|
