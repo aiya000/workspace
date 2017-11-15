@@ -48,13 +48,13 @@ type NumD a = NumDict
 
 {-| (+)の代わり -}
 add : NumD a -> (a -> a -> a)
-add (NumDict { add }) = add
+add (NumDict {add}) = add
 {-| (*)の代わり -}
 mul : NumD a -> (a -> a -> a)
-mul (NumDict { mul }) = mul
+mul (NumDict {mul}) = mul
 {-| negateの代わり -}
 neg : NumD a -> (a -> a)
-neg (NumDict { neg }) = neg
+neg (NumDict {neg}) = neg
 
 
 {- 各Numインスタンスの定義 -}

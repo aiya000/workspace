@@ -22,7 +22,7 @@ type EqD a = EqDict
 eq :: Eq a => a -> a -> Bool
 -}
 eq : EqD a -> a -> a -> Bool
-eq (EqDict { eq }) = eq
+eq (EqDict {eq}) = eq
 
 
 {-| 
