@@ -1,11 +1,29 @@
+module EmClass.Num
+  exposing
+  ( NumD (..)
+  , add
+  , mul
+  , neg
+  , numDInt
+  , numDFloat
+  , numDPair
+  )
+
+{-|
+  How to make and use type classes without implicit caller in Elm
+  - 侵略者 -
+-}
+
 import Html exposing (Html, div, text)
 
 {- 表現は元の論文に準拠しつつ、かつ可能な場合は現代的な表現を用います -}
 
 {-| Num型クラスの宣言（ここではNumD型クラス） -}
-type NumD a = NumDict (a -> a -> a)
-                      (a -> a -> a)
-                      (a -> a)
+type NumD a = NumDict
+  { add : (a -> a -> a)
+  , mul : (a -> a -> a)
+  , neg : (a -> a)
+  }
 
 {- NOTE:
   ここで例えば
@@ -16,36 +34,44 @@ type NumD a = NumDict (a -> a -> a)
     }
   とかすると、後述の
   (Num a, Num b) => Num (a, b)
-  インスタンスで.addが不能になる。
+  インスタンスで.addが不能になるので、一般化されたadd/mul/negを作る。
 
   e.g.
   .add numDInt 1 2 -- OK
   .add (numDPair (numDInt, numDInt)) (1, 2) (3, 4) -- Compile Error !
+  add (numDPair (numDInt, numDInt)) (1, 2) (3, 4) -- OK
 -}
 
-{-
-  Num型クラスの定義
-  NumDict値の定義はインスタンスの定義
--}
+{- Num型クラスの定義 -}
 
 {-| (+)の代わり -}
 add : NumD a -> (a -> a -> a)
-add (NumDict f _ _) = f
+add (NumDict { add }) = add
 {-| (*)の代わり -}
 mul : NumD a -> (a -> a -> a)
-mul (NumDict _ f _) = f
+mul (NumDict { mul }) = mul
 {-| negateの代わり -}
 neg : NumD a -> (a -> a)
-neg (NumDict _ _ f) = f
+neg (NumDict { neg }) = neg
 
+
+{- 各Numインスタンスの定義 -}
 
 {-| IntのNumインスタンスの定義 -}
 numDInt : NumD Int
-numDInt = NumDict (+) (*) negate
+numDInt = NumDict
+  { add = (+)
+  , mul = (*)
+  , neg = negate
+  }
 
 {-| FloatのNumインスタンスの定義 -}
 numDFloat : NumD Float
-numDFloat = NumDict (+) (*) negate
+numDFloat = NumDict
+  { add = (+)
+  , mul = (*)
+  , neg = negate
+  }
 
 
 {-|
@@ -95,7 +121,11 @@ numDPair numDab =
     mulPair (numDa, numDb) (x1, y1) (x2, y2) = (mul numDa x1 x2, mul numDb y1 y2)
     negPair : (NumD a, NumD b) -> (a, b) -> (a, b)
     negPair (numDa, numDb) (x, y) = (neg numDa x, neg numDb y)
-  in NumDict (addPair numDab) (mulPair numDab) (negPair numDab)
+  in NumDict
+      { add = addPair numDab
+      , mul = mulPair numDab
+      , neg = negPair numDab
+      }
 
 depth2InstancesMain : Html a
 depth2InstancesMain = div []
