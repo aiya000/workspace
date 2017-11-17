@@ -10,7 +10,7 @@ module EmClass.Eq
 import Html exposing (Html, div, text)
 import List
 
-{-| 
+{-|
 class Eq a where
   eq :: a -> a -> Bool
 -}
@@ -25,7 +25,7 @@ eq : EqD a -> a -> a -> Bool
 eq (EqDict {eq}) = eq
 
 
-{-| 
+{-|
 instance Eq Int where
   eq = (==)
 -}
