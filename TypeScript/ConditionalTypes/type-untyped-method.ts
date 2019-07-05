@@ -1,9 +1,10 @@
 import deprecated from 'deprecated-decorator'
 
 /**
- * [Let's dirty the static types.](https://docs.nativescript.org/ns-framework-modules/observable)
+ * [Let's do dirty the static types.](https://docs.nativescript.org/ns-framework-modules/observable)
  */
 class UntypedPlaceholder {
+  private core: any = {}
   /**
    * This allows to
    *
@@ -15,56 +16,77 @@ class UntypedPlaceholder {
    * But this is very type unsafe because below is allowed too.
    *
    * ```typescript
-   * x.set('num', 'string')
+   * x.set('num', 'I am 10')
    * ```
    *
    * I want to allow 'num' only with number type.
    */
-  public set(_: string, __: any): void { }
+  public set(key: string, value: any): void {
+    this.core[key] = value
+  }
+
+  public get(key: string): any {
+    return this.core[key]
+  }
 }
 
 /**
  * ValueTypes<{foo: number, bar: string}> = number | string
  */
-type ValueTypes<T> = T extends { [k: string]: infer I } ? I : never
+type ValueTypes<T> = T extends { [k: string]: infer I }
+  ? I
+  : never
 
 /**
  * Field<'foo', {foo: number, bar: string}> = 'foo'
  */
-type Field<K extends string, T> = K extends keyof T
-  ? K
+type Field<X, K extends string, T> = K extends keyof X
+  ? X[K] extends T ? K : never
   : never
 
 /**
  * Recovers the [[UntypedPlaceholder]] type safety.
  */
-class Placeholder<T extends object> extends UntypedPlaceholder {
-  // TODO: Don't allow the below bad pattern.
+class Placeholder<X extends object> extends UntypedPlaceholder {
   /**
    * A type safe `set()`.
-   *
-   * Unfortunately, this allows
-   * ```
-   * const p: Placeholder<{x: number, y: string}> = new Placeholder()
-   * p.assign('x', 'I am a number')
-   * ```
-   *
-   * Be careful.
    */
-  public assign<K extends string>(key: Field<K, T>, value: ValueTypes<T>) {
+  public assign<K extends string, T>(key: Field<X, K, T>, value: T) {
     super.set(key, value)
   }
-
-  // Type level contracts?
-  // public assign<K extends string>(key: Field<K, T>, value: T[K]) {
 
   @deprecated('assign')
   public set(key: string, value: any): void {
     super.set(key, value)
   }
+
+  public take<K extends string, T>(key: Field<X, K, T>): T {
+    return super.get(key)
+  }
+
+  @deprecated('take')
+  public get(key: string): any {
+    return super.get(key)
+  }
 }
 
-const x = new Placeholder<{ x: number }>()
-x.assign('x', 10)
-x.set('x', 20)  // this shows a deprecated mesesage
+const p = new Placeholder<{ x: number, y: string }>()
+p.assign('x', 10)
+p.assign('y', 'poi')
+// 2345: Argument of type '"y"' is not assignable to parameter of type 'never'.
+// p.assign('y', 10)
+
+const x: number = p.take('x')
+const y: string = p.take('y')
+
+// 2345: Argument of type '"y"' is not assignable to parameter of type 'never'.
+// const e: number = p.take('y')
+
+console.log(p)
 console.log(x)
+console.log(y)
+
+// -- output --
+// Placeholder { core: { x: 10, y: 'poi' } }
+// 10
+// poi
