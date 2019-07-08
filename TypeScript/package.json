@@ -1,0 +1,9 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "my workspace",
+  "repository": "https://github.com/aiya000/workspace",
+  "author": "aiya000",
+  "license": "MIT",
+  "private": false
+}
