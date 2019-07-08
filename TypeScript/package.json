@@ -11,5 +11,8 @@
     "node": "^12.6.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
+  },
+  "scripts": {
+    "repl": "npx ts-node"
   }
 }
