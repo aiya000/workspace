@@ -5,5 +5,11 @@
   "repository": "https://github.com/aiya000/workspace",
   "author": "aiya000",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "deprecated-decorator": "^0.1.6",
+    "node": "^12.6.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  }
 }
