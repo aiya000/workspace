@@ -31,17 +31,10 @@ class UntypedPlaceholder {
 }
 
 /**
- * ValueTypes<{foo: number, bar: string}> = number | string
- */
-type ValueTypes<T> = T extends { [k: string]: infer I }
-  ? I
-  : never
-
-/**
  * Field<'foo', {foo: number, bar: string}> = 'foo'
  */
 type Field<X, K extends string, T> = K extends keyof X
-  ? X[K] extends T ? K : never
+  ? T extends X[K] ? K : never
   : never
 
 /**
@@ -85,6 +78,11 @@ const y: string = p.take('y')
 console.log(p)
 console.log(x)
 console.log(y)
+
+// No contravariants
+const a = new Placeholder<{ x: { xx: number } }>()
+// 2345: Argument of type '"x"' is not assignable to parameter of type 'never'.
+// a.assign('x', {})
 
 // -- output --
 // Placeholder { core: { x: 10, y: 'poi' } }
