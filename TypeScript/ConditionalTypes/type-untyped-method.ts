@@ -53,7 +53,7 @@ class Placeholder<X extends object> extends UntypedPlaceholder {
     super.set(key, value)
   }
 
-  public take<K extends string, T>(key: Field<X, K, T>): T {
+  public take<K extends string, T>(key: Field<X, K, T>): T | undefined {
     return super.get(key)
   }
 
@@ -69,8 +69,8 @@ p.assign('y', 'poi')
 // 2345: Argument of type '"y"' is not assignable to parameter of type 'never'.
 // p.assign('y', 10)
 
-const x: number = p.take('x')
-const y: string = p.take('y')
+const x: number | undefined = p.take('x')
+const y: string | undefined = p.take('y')
 
 // 2345: Argument of type '"y"' is not assignable to parameter of type 'never'.
 // const e: number = p.take('y')
@@ -84,7 +84,10 @@ const a = new Placeholder<{ x: { xx: number } }>()
 // 2345: Argument of type '"x"' is not assignable to parameter of type 'never'.
 // a.assign('x', {})
 
+console.log(a)
+
 // -- output --
 // Placeholder { core: { x: 10, y: 'poi' } }
 // 10
 // poi
+// Placeholder { core: {} }
