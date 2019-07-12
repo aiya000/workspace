@@ -14,5 +14,8 @@
   },
   "scripts": {
     "repl": "npx ts-node"
+  },
+  "devDependencies": {
+    "utility-types": "^3.7.0"
   }
 }
