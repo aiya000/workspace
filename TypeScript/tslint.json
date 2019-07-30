@@ -15,10 +15,11 @@
     "align": false,
     "max-classes-per-file": false,
     "no-console": false,
+    "arrow-parens": false,
     "quotemark": [true, "single"],
     "variable-name": [true, "allow-trailing-underscore"],
     "max-line-length": [true, {"limit": 120}],
-    "array-type": [true, "array"],
+    "array-type": [true, "generic"],
     "trailing-comma": [
       true,
       {
