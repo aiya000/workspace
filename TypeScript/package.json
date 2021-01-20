@@ -13,6 +13,11 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "lint": "yarn prettier && yarn eslint",
+    "eslint": "eslint \"src/**/*.ts\"",
+    "prettier": "prettier --check 'src/**/*.ts' --write",
     "repl": "npx ts-node"
   },
   "devDependencies": {
