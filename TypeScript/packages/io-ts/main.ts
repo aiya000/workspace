@@ -68,7 +68,7 @@ if (objectY.is(c)) {
 // c is an ObjectY.
 // 42
 
-// こっちで書いた方がいい
+// We should not use below.
 const objectYNotBetter = T.type({
   x: T.number,
   y: T.union([T.string, T.undefined]),
