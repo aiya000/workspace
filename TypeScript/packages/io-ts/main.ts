@@ -1,7 +1,5 @@
 import * as T from 'io-ts'
 
-/* eslint @typescript-eslint/no-unused-vars: 0 */
-
 // interface
 const objectX = T.type({
   x: T.number,
@@ -18,7 +16,6 @@ interface ObjectX {
 }
 
 */
-
 
 const a: unknown = {
   x: 42,
@@ -40,12 +37,8 @@ if (isObjectX(a)) {
 // 42
 //
 
-
 // union
-const unionX = T.union([
-  T.number,
-  T.string,
-])
+const unionX = T.union([T.number, T.string])
 
 type UnionX = T.TypeOf<typeof unionX>
 
@@ -59,12 +52,8 @@ if (unionX.is(b)) {
 // b is a UnionX.
 //
 
-
 // partialを持つinterface
-const objectY = T.intersection([
-  T.type({x: T.number}),
-  T.partial({y: T.string}),
-])
+const objectY = T.intersection([T.type({ x: T.number }), T.partial({ y: T.string })])
 
 type ObjectY = T.TypeOf<typeof objectY>
 
@@ -78,7 +67,6 @@ if (objectY.is(c)) {
 
 // c is an ObjectY.
 // 42
-
 
 // こっちで書いた方がいい
 const objectYNotBetter = T.type({

@@ -13,6 +13,8 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import'],
 
   rules: {
+    '@typescript-eslint/no-unused-vars': 'off',
+
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/no-empty-function': 'error',
